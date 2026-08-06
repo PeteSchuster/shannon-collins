@@ -30,10 +30,6 @@ jobs:
       - run: npm ci
 
       - run: npm run build
-        env:
-          # Optional: set this repository variable to a Formspree (or similar)
-          # endpoint to switch the contact page from a mailto link to a real form.
-          PUBLIC_CONTACT_FORM_ENDPOINT: ${{ vars.PUBLIC_CONTACT_FORM_ENDPOINT }}
 
       - uses: actions/configure-pages@v5
 
