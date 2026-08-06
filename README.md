@@ -38,6 +38,40 @@ Adding a new illustration project:
 3. Add its slug to `projectOrder` — that array controls what the Illustration index shows
    and in what order.
 
+## Styles
+
+Sass, mobile-first, split by concern under [`src/styles/`](src/styles):
+
+```
+main.scss              entry point, imported once by Base.astro
+abstracts/
+  _breakpoints.scss    breakpoint map + from() mixin
+  _tokens.scss         CSS custom properties (colours, fonts, spacing)
+base/
+  _fonts.scss          self-hosted Lato + Merriweather
+  _reset.scss          element defaults
+  _utilities.scss      .sr-only
+layout/
+  _canvas.scss         the bordered sheet everything sits on
+  _masthead.scss       logo + nav
+  _footer.scss         social icons
+components/
+  _banner.scss         full-width image + overlaid caption
+  _prose.scss          body copy and headings
+  _projects.scss       illustration index grid
+```
+
+Two rules worth keeping:
+
+- **Mobile-first, always.** Base rules describe the phone; every media query is a
+  min-width `@include from('sm' | 'md' | 'lg')`. There is deliberately no `until()`
+  mixin — mixing both directions is what makes a stylesheet fight itself.
+- **rem for lengths, px only for hairlines.** Sizes are rem so the layout scales with the
+  reader's browser font size. 1px borders and focus outlines stay px so they don't blur.
+
+The slideshow's styles live in `Slideshow.astro` rather than here, since nothing else
+uses them.
+
 ## Routes
 
 | Route                       | Was (Squarespace)                    |
@@ -54,17 +88,11 @@ redirect stub for each one.
 The **Photography** nav item points off-site to shannoncollins.com, exactly as it did
 before.
 
-## Contact form
+## Contact
 
-Squarespace processed the form server-side; GitHub Pages can't. Set
-`PUBLIC_CONTACT_FORM_ENDPOINT` to a hosted form handler (a free
-[Formspree](https://formspree.io) form is the least-effort option) and the contact page
-renders the full form, posting there. Leave it unset and the page falls back to a plain
-mailto link instead — no broken form either way.
-
-- Locally: copy `.env.example` to `.env` and fill it in.
-- On GitHub: **Settings → Secrets and variables → Actions → Variables**, add
-  `PUBLIC_CONTACT_FORM_ENDPOINT`. The deploy workflow already passes it through.
+No form — the contact page just links to Shannon's email. Squarespace processed its form
+server-side and a static site has nothing to replace that with, so the page points at their
+inbox instead. The address comes from `social` in `content.json`.
 
 ## Deploying
 

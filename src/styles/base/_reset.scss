@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-body);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.1875rem;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+
+  &:hover {
+    color: var(--ink);
+    text-decoration-color: currentColor;
+  }
+}
+
+:where(a, button, input, textarea, summary):focus-visible {
+  /* px: a focus ring should stay crisp regardless of text size. */
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}

@@ -1,0 +1,51 @@
+@use '../abstracts/breakpoints' as *;
+
+/* One column on a phone, two from 'sm', three from 'md' — the original desktop grid. */
+.projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.1875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include from('sm') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.8125rem 1.875rem;
+  }
+
+  @include from('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+
+  &__frame {
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &:hover &__frame img {
+    opacity: 0.8;
+  }
+
+  &__title {
+    margin: 1.125rem 0 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.0625rem;
+    text-align: center;
+  }
+}

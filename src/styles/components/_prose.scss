@@ -1,0 +1,56 @@
+.prose {
+  max-width: var(--measure);
+  margin: 0 auto var(--gap-block);
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 0 0 1.8em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0 0 0.8em;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.0625rem;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3125rem;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Kept for any page that wants a visible title; project pages hide it via .sr-only. */
+.page-title {
+  margin: 0 0 1.875rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.125rem;
+  text-align: center;
+  text-transform: uppercase;
+}

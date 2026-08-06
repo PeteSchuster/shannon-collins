@@ -1,0 +1,12 @@
+/*
+ * Self-hosted so nothing loads from a third-party CDN.
+ *
+ * The `as` clauses are required only because Sass can't derive a namespace from a
+ * filename that starts with a digit ("300.css"); nothing references them.
+ */
+@use '@fontsource/lato/300.css' as lato-light;
+@use '@fontsource/lato/400.css' as lato-regular;
+@use '@fontsource/lato/700.css' as lato-bold;
+@use '@fontsource/merriweather/300.css' as merriweather-light;
+@use '@fontsource/merriweather/300-italic.css' as merriweather-light-italic;
+@use '@fontsource/merriweather/700.css' as merriweather-bold;

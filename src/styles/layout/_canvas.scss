@@ -1,0 +1,28 @@
+@use '../abstracts/breakpoints' as *;
+
+/*
+ * The sheet the whole site sits on. Edge-to-edge on a phone; from 'sm' up it detaches
+ * from the viewport and picks up the hairline border of the original theme.
+ */
+.canvas {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--canvas-max);
+  /* dvh so mobile browser chrome doesn't push the footer below the fold. */
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: var(--canvas-margin) auto;
+  padding: var(--canvas-pad-top) var(--canvas-gutter) 0;
+
+  @include from('sm') {
+    /* px border: a hairline should stay a hairline. */
+    border: 1px solid var(--rule);
+    min-height: calc(100vh - var(--canvas-margin) * 2);
+    min-height: calc(100dvh - var(--canvas-margin) * 2);
+  }
+
+  /* Pushes the footer to the bottom on short pages (About, Contact). */
+  > main {
+    flex: 1;
+  }
+}

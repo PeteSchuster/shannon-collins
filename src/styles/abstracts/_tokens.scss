@@ -1,0 +1,44 @@
+@use 'breakpoints' as *;
+
+/*
+ * Design tokens lifted from the original Squarespace theme (Momentum family).
+ *
+ * Lengths are rem so the whole layout scales with the reader's browser font size;
+ * the root size is left at the browser default (no 62.5% trick, which breaks that
+ * scaling for anyone who has changed it). Hairline borders and focus outlines stay
+ * in px — a 1px rule should stay 1px, not blur to 1.4px at larger text sizes.
+ */
+:root {
+  --font-display: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Merriweather', Georgia, 'Times New Roman', serif;
+
+  --ink: #222;
+  --ink-body: #5c5c5c;
+  --ink-muted: rgba(0, 0, 0, 0.5);
+  --rule: rgba(0, 0, 0, 0.1);
+  --paper: #fff;
+
+  /* Vertical rhythm between banners, prose and galleries. */
+  --gap-block: 1.875rem;
+
+  /* Canvas: full-bleed on a phone, a bordered 71.25rem sheet on a desktop. */
+  --canvas-max: 71.25rem;
+  --canvas-gutter: 1.25rem;
+  --canvas-margin: 0rem;
+  --canvas-pad-top: 1.875rem;
+
+  /* Body copy sits in a narrower column centred inside the content width. */
+  --measure: 45.75rem;
+
+  @include from('sm') {
+    --gap-block: 2.8125rem;
+    --canvas-gutter: 1.875rem;
+    --canvas-margin: 1.875rem;
+    --canvas-pad-top: 2.8125rem;
+  }
+
+  @include from('lg') {
+    --canvas-gutter: 2.9375rem;
+    --canvas-margin: 4.375rem;
+  }
+}

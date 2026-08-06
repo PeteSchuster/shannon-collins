@@ -1,0 +1,15 @@
+/*
+ * Squarespace rendered no headings at all — pages were identified by the nav and the
+ * banner. Keep that look, but give every page a real h1 for screen readers and search
+ * engines.
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

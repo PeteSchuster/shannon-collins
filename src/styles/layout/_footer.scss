@@ -1,0 +1,36 @@
+@use '../abstracts/breakpoints' as *;
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: var(--gap-block);
+  padding: 2.1875rem 0;
+  border-top: 1px solid var(--rule);
+
+  @include from('sm') {
+    justify-content: flex-end;
+    padding: 3.125rem 0;
+  }
+
+  &__link {
+    display: grid;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: #333;
+    color: #fff;
+
+    &:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    svg {
+      width: 0.9375rem;
+      height: 0.9375rem;
+    }
+  }
+}

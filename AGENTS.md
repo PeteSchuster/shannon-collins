@@ -11,8 +11,25 @@ Static Astro site (see [README.md](README.md) for the full picture).
   Squarespace's CDN. Reference images through `image()` in `src/lib/content.ts` so Astro
   optimises them at build time.
 - **The design is a deliberate copy of the old Squarespace theme.** Lato + Merriweather,
-  1140px bordered canvas, 732px text column, no visible page headings (h1s are `.sr-only`).
-  Don't "improve" the layout without being asked.
+  71.25rem bordered canvas, 45.75rem text column, no visible page headings (h1s are
+  `.sr-only`). Don't "improve" the layout without being asked.
+
+## Styles
+
+Sass under `src/styles/`, split into `abstracts/` `base/` `layout/` `components/` and
+pulled together by `main.scss`. Two rules:
+
+- **Mobile-first.** Base rules are the phone; every media query is a min-width
+  `@include from('sm' | 'md' | 'lg')` from `abstracts/_breakpoints.scss`. Never add a
+  max-width query.
+- **rem for lengths.** px is reserved for hairline borders and focus outlines, which
+  should not scale with the reader's font size.
+
+## Internal links
+
+`base` is set (staging on project Pages), so **every internal href must go through
+`url()` from `src/lib/content.ts`** — Astro does not base-prefix plain href strings.
+A hardcoded `/about` works locally and 404s in production.
 
 ## Docs
 
@@ -20,9 +37,3 @@ Astro docs: https://docs.astro.build — [routing](https://docs.astro.build/en/g
 [components](https://docs.astro.build/en/basics/astro-components/),
 [images](https://docs.astro.build/en/guides/images/),
 [styling](https://docs.astro.build/en/guides/styling/).
-
-## Internal links
-
-`base` is set (staging on project Pages), so **every internal href must go through
-`url()` from `src/lib/content.ts`** — Astro does not base-prefix plain href strings.
-A hardcoded `/about` works locally and 404s in production.

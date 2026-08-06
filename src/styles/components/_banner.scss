@@ -1,0 +1,31 @@
+.banner {
+  position: relative;
+  margin-bottom: var(--gap-block);
+
+  img {
+    width: 100%;
+  }
+
+  /*
+   * Overlaid caption, as on the Squarespace index banners. The original used plain
+   * white with no scrim, which is illegible over the paler illustrations; the shadow
+   * is the one liberty taken with the design.
+   */
+  &__caption {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 10%;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(0.8125rem, 1.4vw, 1.0625rem);
+    font-weight: 300;
+    letter-spacing: 0.125rem;
+    line-height: 2;
+    pointer-events: none;
+    text-align: center;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+    text-transform: uppercase;
+  }
+}

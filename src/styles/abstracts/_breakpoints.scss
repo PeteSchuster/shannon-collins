@@ -1,0 +1,31 @@
+@use 'sass:map';
+
+/*
+ * Everything is mobile-first: the base rules describe the phone, and these are the
+ * only direction breakpoints go. There is deliberately no `until()` mixin — reaching
+ * for max-width is what makes a stylesheet fight itself.
+ *
+ * Breakpoint values are in rem so they track the reader's browser font size. (Inside a
+ * media query, rem always means the *initial* font size, so an html { font-size } of
+ * our own could never skew these.)
+ */
+$breakpoints: (
+  'sm': 40rem,
+  // 640px — border and margins appear, nav stops wrapping, 2-column grid
+  'md': 50rem,
+  // 800px — 3-column project grid
+  'lg': 64rem,
+  // 1024px — full-width canvas gutters
+);
+
+@mixin from($name) {
+  $size: map.get($breakpoints, $name);
+
+  @if not $size {
+    @error 'Unknown breakpoint `#{$name}`. Known: #{map.keys($breakpoints)}.';
+  }
+
+  @media (min-width: $size) {
+    @content;
+  }
+}

@@ -1,0 +1,24 @@
+/*
+ * Single entry point, loaded once by src/layouts/Base.astro.
+ *
+ * The stylesheet is mobile-first throughout: base rules describe the phone, and every
+ * media query is a min-width `from()` that adds to them. See abstracts/_breakpoints.
+ *
+ * Component-scoped styles that only one component uses (the slideshow) stay in that
+ * .astro file instead of here.
+ */
+
+@use 'base/fonts';
+
+@use 'abstracts/tokens';
+
+@use 'base/reset';
+@use 'base/utilities';
+
+@use 'layout/canvas';
+@use 'layout/masthead';
+@use 'layout/footer';
+
+@use 'components/banner';
+@use 'components/prose';
+@use 'components/projects';
