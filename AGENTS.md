@@ -20,3 +20,9 @@ Astro docs: https://docs.astro.build — [routing](https://docs.astro.build/en/g
 [components](https://docs.astro.build/en/basics/astro-components/),
 [images](https://docs.astro.build/en/guides/images/),
 [styling](https://docs.astro.build/en/guides/styling/).
+
+## Internal links
+
+`base` is set (staging on project Pages), so **every internal href must go through
+`url()` from `src/lib/content.ts`** — Astro does not base-prefix plain href strings.
+A hardcoded `/about` works locally and 404s in production.

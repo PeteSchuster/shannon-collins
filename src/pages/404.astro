@@ -1,13 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
+import { url } from '../lib/content';
 ---
 
 <Base title="Page not found" description="That page doesn't exist.">
   <div class="prose" style="text-align: center; padding: 60px 0;">
     <h1>Page not found</h1>
     <p>
-      That page has moved or never existed. Try the <a href="/illustration">illustration work</a> or
-      <a href="/contact">get in touch</a>.
+      That page has moved or never existed. Try the
+      <a href={url('/illustration')}>illustration work</a> or
+      <a href={url('/contact')}>get in touch</a>.
     </p>
   </div>
 </Base>

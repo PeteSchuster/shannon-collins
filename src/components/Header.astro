@@ -1,21 +1,25 @@
 ---
 import { Image } from 'astro:assets';
-import { site, image } from '../lib/content';
+import { site, image, url } from '../lib/content';
 
 const links = [
-  { label: 'Illustration', href: '/illustration' },
+  { label: 'Illustration', href: url('/illustration') },
   // Shannon's photography lives on a separate site; the old nav pointed off-site too.
   { label: 'Photography', href: 'https://www.shannoncollins.com', external: true },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'About', href: url('/about') },
+  { label: 'Contact', href: url('/contact') },
 ];
 
-const path = '/' + Astro.url.pathname.replace(/^\/|\/$/g, '');
-const isCurrent = (href: string) => path === href || path.startsWith(href + '/');
+const strip = (p: string) => '/' + p.replace(/^\/|\/$/g, '');
+const path = strip(Astro.url.pathname);
+const isCurrent = (href: string) => {
+  const target = strip(href);
+  return path === target || path.startsWith(target + '/');
+};
 ---
 
 <header class="masthead">
-  <a class="masthead__logo" href="/" aria-label={`${site.title} — home`}>
+  <a class="masthead__logo" href={url('/')} aria-label={`${site.title} — home`}>
     <Image src={image(site.logo)} alt={site.title} width={290} densities={[1, 2]} loading="eager" />
   </a>
 

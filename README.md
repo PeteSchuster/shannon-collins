@@ -71,11 +71,22 @@ mailto link instead — no broken form either way.
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds and publishes on
 every push to `main`. In the repo: **Settings → Pages → Source: GitHub Actions**.
 
-The site is configured for the custom domain `www.shannon-collins.com`
-([`public/CNAME`](public/CNAME) plus `site` in `astro.config.mjs`). DNS has to point at
-GitHub before that works — see
-[GitHub's custom domain docs](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site).
+Currently deployed to **https://peteschuster.github.io/shannon-collins** — a staging URL,
+so the Squarespace site stays live and untouched while this one gets reviewed.
 
-To publish at `<username>.github.io/shannon-collins` instead: delete `public/CNAME`, and
-in `astro.config.mjs` set `site: 'https://<username>.github.io'` and
-`base: '/shannon-collins'`.
+### Moving to www.shannon-collins.com
+
+Two things have to happen, in this order:
+
+1. **Confirm the domain survives cancelling Squarespace.** Squarespace bills domain
+   registration separately from the site plan. If the domain is registered *through*
+   Squarespace rather than just pointed at it, make sure the registration is transferred
+   or kept before the plan lapses.
+2. **Flip the config and DNS.** In [`astro.config.mjs`](astro.config.mjs) set
+   `SITE = 'https://www.shannon-collins.com'` and `BASE = ''`, add `public/CNAME`
+   containing `www.shannon-collins.com`, then point DNS at GitHub per
+   [their custom domain docs](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site).
+
+`SITE` and `BASE` are the only two knobs. Internal links go through `url()` in
+`src/lib/content.ts` and the redirect map is built from `BASE`, so nothing else needs
+editing — and `npm run build` will catch it if something was missed.

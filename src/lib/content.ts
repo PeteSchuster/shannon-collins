@@ -16,6 +16,18 @@ export type Page = {
 
 const pages = content.pages as unknown as Record<string, Page>;
 
+/**
+ * Prefixes an internal path with the configured `base`. Astro does not do this for
+ * plain href strings, so every internal link must go through here — otherwise the
+ * site breaks the moment it is served from a subdirectory (or stops working when it
+ * moves back off one).
+ */
+export function url(path: string): string {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const rest = path.replace(/^\//, '');
+  return rest ? `${base}/${rest}` : base || '/';
+}
+
 export const site = {
   title: 'Shannon Collins',
   tagline: 'Illustrator and photographer based in the Philadelphia area.',
@@ -32,7 +44,7 @@ export function getPage(slug: string): Page {
 /** Illustration projects, in the order the old index listed them. */
 export const projects = (content.projectOrder as string[]).map((slug) => ({
   slug,
-  href: `/illustration/${slug}`,
+  href: url(`/illustration/${slug}`),
   ...getPage(slug),
 }));
 
