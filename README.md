@@ -50,7 +50,8 @@ abstracts/
 base/
   _fonts.scss          self-hosted Lato + Merriweather
   _reset.scss          element defaults
-  _utilities.scss      .sr-only
+  _motion.scss         prefers-reduced-motion
+  _utilities.scss      .sr-only + skip link
 layout/
   _canvas.scss         the bordered sheet everything sits on
   _masthead.scss       logo + nav
@@ -93,6 +94,25 @@ before.
 No form — the contact page just links to Shannon's email. Squarespace processed its form
 server-side and a static site has nothing to replace that with, so the page points at their
 inbox instead. The address comes from `social` in `content.json`.
+
+## Accessibility
+
+`axe-core` reports zero violations across every page. Worth not regressing:
+
+- **Every page has an `h1`**, usually `.sr-only` — the design deliberately shows no
+  headings, but screen readers and search engines still need one.
+- **A skip link** precedes the masthead, so keyboard users don't tab the logo and four
+  nav links on every page.
+- **Contrast meets AA.** Note `--ink-muted` is `#6e6e6e` (5.1:1), not the theme's original
+  `rgba(0,0,0,.5)`, which measured 3.94:1 and failed.
+- **Reduced motion is respected** in CSS and in the slideshow's JS, which picks its scroll
+  behaviour from `prefers-reduced-motion` (CSS can't reach `scrollIntoView`).
+- **Heading order doesn't skip levels** — this is why the contact copy in `content.json`
+  uses `<h2>`, not the `<h3>` Squarespace emitted.
+
+One thing automated tools can't check: banner captions are white text over artwork, so
+contrast depends on the image. A halo keeps them legible, but a genuinely pale banner is
+a content problem — reword or reimage it rather than restyling the caption.
 
 ## Deploying
 

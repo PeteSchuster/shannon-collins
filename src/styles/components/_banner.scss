@@ -25,7 +25,15 @@
     line-height: 2;
     pointer-events: none;
     text-align: center;
-    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+    /*
+     * White text over artwork we don't control, so contrast can't be guaranteed. A tight
+     * dark halo plus a wider glow keeps it readable over the paler banners without
+     * dimming the illustration the way a scrim would. Genuinely low-contrast banners are
+     * a content problem — see the note in README.
+     */
+    text-shadow:
+      0 0 2px rgba(0, 0, 0, 0.55),
+      0 1px 14px rgba(0, 0, 0, 0.65);
     text-transform: uppercase;
   }
 }

@@ -337,7 +337,7 @@
       "blocks": [
         {
           "type": "text",
-          "html": "<h3>Say Hello.</h3><p>Please don't hesitate to reach out, whether you're interested in hiring me for freelance work or just want to say hello.</p>"
+          "html": "<h2>Say Hello.</h2><p>Please don't hesitate to reach out, whether you're interested in hiring me for freelance work or just want to say hello.</p>"
         },
         {
           "type": "form"

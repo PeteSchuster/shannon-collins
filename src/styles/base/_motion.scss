@@ -1,0 +1,14 @@
+/*
+ * Respect the OS "reduce motion" setting. The slideshow also checks this in JS before
+ * choosing a scroll behaviour — CSS alone can't reach scrollIntoView.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

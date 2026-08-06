@@ -14,7 +14,8 @@
 
   --ink: #222;
   --ink-body: #5c5c5c;
-  --ink-muted: rgba(0, 0, 0, 0.5);
+  /* 5.1:1 on white. The theme's original rgba(0,0,0,.5) measured 3.94:1 and failed AA. */
+  --ink-muted: #6e6e6e;
   --rule: rgba(0, 0, 0, 0.1);
   --paper: #fff;
 

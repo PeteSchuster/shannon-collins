@@ -13,13 +13,19 @@ interface Props {
   banner?: ImageRef | null;
   /** Caption overlaid on the banner. */
   bannerCaption?: string;
+  /**
+   * Share-preview image. Defaults to the banner; pass it explicitly on pages that have a
+   * representative image but don't render one at the top.
+   */
+  socialImage?: ImageRef | null;
 }
 
-const { title, description = site.tagline, banner, bannerCaption } = Astro.props;
+const { title, description = site.tagline, banner, bannerCaption, socialImage } = Astro.props;
 
 const pageTitle = title ? `${title} — ${site.title}` : site.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = banner ? new URL(image(banner.src).src, Astro.site) : undefined;
+const share = socialImage ?? banner;
+const ogImage = share ? new URL(image(share.src).src, Astro.site) : undefined;
 ---
 
 <!doctype html>
@@ -41,10 +47,12 @@ const ogImage = banner ? new URL(image(banner.src).src, Astro.site) : undefined;
   </head>
 
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <div class="canvas">
       <Header />
 
-      <main>
+      <main id="main">
         {
           banner && (
             <div class="banner">

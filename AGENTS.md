@@ -25,6 +25,12 @@ pulled together by `main.scss`. Two rules:
 - **rem for lengths.** px is reserved for hairline borders and focus outlines, which
   should not scale with the reader's font size.
 
+## Accessibility
+
+axe-core reports zero violations; keep it that way. Every page needs an `h1` (usually
+`.sr-only`), heading levels must not skip, contrast must hit AA (`--ink-muted` is
+`#6e6e6e` for exactly this reason), and new motion must honour `prefers-reduced-motion`.
+
 ## Internal links
 
 `base` is set (staging on project Pages), so **every internal href must go through

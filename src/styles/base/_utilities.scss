@@ -13,3 +13,28 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+/*
+ * Skip link: without it, every page makes a keyboard user tab through the logo and four
+ * nav links before reaching content. Visually hidden until focused.
+ */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 10;
+  padding: 0.75rem 1.25rem;
+  transform: translate(-50%, -100%);
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.0625rem;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:focus {
+    transform: translate(-50%, 0);
+    color: #fff;
+  }
+}

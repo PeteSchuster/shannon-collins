@@ -261,7 +261,9 @@ const { images, label } = Astro.props;
       const clamped = Math.max(0, Math.min(this.slides.length - 1, to));
       // Animate a step, but jump a thumbnail click: sliding through 20-odd images is
       // slow, and `scroll-snap-stop: always` can strand a smooth scroll partway.
-      const behavior = Math.abs(clamped - this.index) > 1 ? 'instant' : 'smooth';
+      // scrollIntoView is out of reach of the CSS reduced-motion rules, so check here.
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const behavior = reduced || Math.abs(clamped - this.index) > 1 ? 'instant' : 'smooth';
       this.slides[clamped]?.scrollIntoView({ behavior, block: 'nearest', inline: 'center' });
       this.setIndex(clamped);
     }

@@ -6,4 +6,7 @@ import { getPage, site } from '../lib/content';
 const page = getPage('home');
 ---
 
-<Base banner={page.banner} description={site.tagline} />
+<Base banner={page.banner} description={site.tagline}>
+  {/* The page is purely an image, but it still needs a heading for screen readers. */}
+  <h1 class="page-title sr-only">{site.title}</h1>
+</Base>
