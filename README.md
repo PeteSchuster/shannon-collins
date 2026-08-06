@@ -59,7 +59,7 @@ layout/
 components/
   _banner.scss         full-width image + overlaid caption
   _prose.scss          body copy and headings
-  _projects.scss       illustration index grid
+  _projects.scss       project grid + "other work"
 ```
 
 Two rules worth keeping:
@@ -88,6 +88,11 @@ redirect stub for each one.
 
 The **Photography** nav item points off-site to shannoncollins.com, exactly as it did
 before.
+
+Project pages lead with the gallery — no banner. Squarespace put the project's main image
+at the top, but it was always the same image as the first slide, and its overlaid caption
+duplicated the intro paragraph underneath. The banner image is still used as the share
+preview. Each project ends with an **Other Work** grid linking to the rest.
 
 ## Contact
 

@@ -1,32 +1,12 @@
 ---
-import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
-import { projects, image } from '../../lib/content';
+import ProjectGrid from '../../components/ProjectGrid.astro';
+import { projects } from '../../lib/content';
 ---
 
 <Base title="Illustration" description="Illustration projects by Shannon Collins.">
+  {/* The original index showed no page heading; keep one for screen readers. */}
   <h1 class="page-title sr-only">Illustration</h1>
 
-  <ul class="projects">
-    {
-      projects.map((project) => (
-        <li>
-          <a class="project-card" href={project.href}>
-            <div class="project-card__frame">
-              {project.banner && (
-                <Image
-                  src={image(project.banner.src)}
-                  alt=""
-                  widths={[330, 660]}
-                  sizes="(max-width: 640px) 100vw, (max-width: 800px) 45vw, 330px"
-                />
-              )}
-            </div>
-            <p class="project-card__title">{project.title}</p>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <ProjectGrid projects={projects} />
 </Base>
-

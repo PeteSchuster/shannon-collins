@@ -2,28 +2,34 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import Slideshow from '../../components/Slideshow.astro';
+import ProjectGrid from '../../components/ProjectGrid.astro';
 import { projects } from '../../lib/content';
 
 export const getStaticPaths = (() =>
   projects.map((project) => ({
     params: { slug: project.slug },
-    props: { project },
+    props: { project, others: projects.filter((p) => p.slug !== project.slug) },
   }))) satisfies GetStaticPaths;
 
-const { project } = Astro.props;
+const { project, others } = Astro.props;
 
+/*
+ * Prefer the intro text over the Squarespace page description. The description is the
+ * field Shannon stopped maintaining — "The Things We Do" still describes a two-year-old
+ * — while the intro paragraph is the copy that gets edited.
+ */
 const summary =
-  project.description ||
   project.blocks.find((b) => b.type === 'text')?.html.replace(/<[^>]*>/g, '').trim() ||
+  project.description ||
   undefined;
 ---
 
-<Base
-  title={project.title}
-  description={summary}
-  banner={project.banner}
-  bannerCaption={project.description}
->
+{/*
+  No banner here: it repeated the first slide and carried a caption duplicating the
+  intro text below it. The gallery is the page. The banner image is still the share
+  preview, since it's the image that represents the project.
+*/}
+<Base title={project.title} description={summary} socialImage={project.banner}>
   <h1 class="page-title sr-only">{project.title}</h1>
 
   {
@@ -33,6 +39,15 @@ const summary =
       ) : block.type === 'gallery' ? (
         <Slideshow images={block.images} label={project.title} />
       ) : null,
+    )
+  }
+
+  {
+    others.length > 0 && (
+      <section class="other-work">
+        <h2 class="page-title">Other Work</h2>
+        <ProjectGrid projects={others} />
+      </section>
     )
   }
 </Base>

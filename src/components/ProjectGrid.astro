@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import { image } from '../lib/content';
+
+interface Props {
+  projects: { slug: string; href: string; title: string; banner: { src: string } | null }[];
+}
+
+const { projects } = Astro.props;
+---
+
+<ul class="projects">
+  {
+    projects.map((project) => (
+      <li>
+        <a class="project-card" href={project.href}>
+          <div class="project-card__frame">
+            {project.banner && (
+              <Image
+                src={image(project.banner.src)}
+                alt=""
+                widths={[330, 660]}
+                sizes="(max-width: 640px) 100vw, (max-width: 800px) 45vw, 330px"
+              />
+            )}
+          </div>
+          <p class="project-card__title">{project.title}</p>
+        </a>
+      </li>
+    ))
+  }
+</ul>
