@@ -93,8 +93,18 @@ const { images, label } = Astro.props;
       }
     }
 
+    /*
+     * The track is a flex row, so the stage is always as tall as the tallest slide.
+     * Centring matters because of that: without it a short landscape slide sits against
+     * the top of a stage sized for a portrait one, dumping every pixel of slack between
+     * the artwork and the thumbnails. The aspect spread only shows on narrow screens —
+     * on a wide one the max-height cap flattens most galleries to a single height.
+     */
     &__slide {
+      display: flex;
       flex: 0 0 100%;
+      align-items: center;
+      justify-content: center;
       scroll-snap-align: center;
       scroll-snap-stop: always;
 
