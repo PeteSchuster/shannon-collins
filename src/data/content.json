@@ -1,0 +1,365 @@
+{
+  "pages": {
+    "home": {
+      "title": "Welcome",
+      "description": "",
+      "banner": {
+        "src": "chameleon8x10.jpg",
+        "alt": "Welcome"
+      },
+      "blocks": []
+    },
+    "the-things-we-do": {
+      "title": "The Things We Do",
+      "description": "A board book made for my husband, about the things he does with our two-year-old daughter.",
+      "banner": {
+        "src": "6.jpg",
+        "alt": "The Things We Do"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<p>A board book made for my partner about the things he did with our 2-year-old child.&nbsp;</p>"
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "8.jpg",
+              "alt": "8.jpg"
+            },
+            {
+              "src": "1.jpg",
+              "alt": "1.jpg"
+            },
+            {
+              "src": "2.jpg",
+              "alt": "2.jpg"
+            },
+            {
+              "src": "3.jpg",
+              "alt": "3.jpg"
+            },
+            {
+              "src": "4.jpg",
+              "alt": "4.jpg"
+            },
+            {
+              "src": "5.jpg",
+              "alt": "5.jpg"
+            },
+            {
+              "src": "6-1894ef.jpg",
+              "alt": "6.jpg"
+            },
+            {
+              "src": "7.jpg",
+              "alt": "7.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    "say-hello-to-my-little-friends": {
+      "title": "Say Hello To My Little Friends",
+      "description": "",
+      "banner": {
+        "src": "chameleon8x10-88cb34.jpg",
+        "alt": "Say Hello To My Little Friends"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<p>A series of bright animal illustrations using colored pencils, watercolors, and ink.&nbsp;</p>"
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "chameleon8x10-5109cc.jpg",
+              "alt": "chameleon8x10.jpg"
+            },
+            {
+              "src": "duck-8x10.jpg",
+              "alt": "duck 8x10.jpg"
+            },
+            {
+              "src": "bear-final.jpg",
+              "alt": "bear-final.jpg"
+            },
+            {
+              "src": "alpaca-8x10.jpg",
+              "alt": "alpaca 8x10.jpg"
+            },
+            {
+              "src": "bat-8x10.jpg",
+              "alt": "bat 8x10.jpg"
+            },
+            {
+              "src": "chicken8x10.jpg",
+              "alt": "chicken8x10.jpg"
+            },
+            {
+              "src": "chinchilla-8x10.jpg",
+              "alt": "chinchilla 8x10.jpg"
+            },
+            {
+              "src": "chipmunk-8x10.jpg",
+              "alt": "chipmunk 8x10.jpg"
+            },
+            {
+              "src": "cow8x10.jpg",
+              "alt": "cow8x10.jpg"
+            },
+            {
+              "src": "duck8x10.jpg",
+              "alt": "duck8x10.jpg"
+            },
+            {
+              "src": "ferret-kodak-8x10.jpg",
+              "alt": "ferret kodak 8x10.jpg"
+            },
+            {
+              "src": "fox-8x10.jpg",
+              "alt": "fox 8x10.jpg"
+            },
+            {
+              "src": "fox8x10.jpg",
+              "alt": "fox8x10.jpg"
+            },
+            {
+              "src": "goat8x10.jpg",
+              "alt": "goat8x10.jpg"
+            },
+            {
+              "src": "guinea-pig-8x10.jpg",
+              "alt": "guinea pig 8x10.jpg"
+            },
+            {
+              "src": "hamster-8x10.jpg",
+              "alt": "hamster 8x10.jpg"
+            },
+            {
+              "src": "hedgehog-8x10.jpg",
+              "alt": "hedgehog 8x10.jpg"
+            },
+            {
+              "src": "kinkajou-8x10.jpg",
+              "alt": "kinkajou 8x10.jpg"
+            },
+            {
+              "src": "monkey-8x10.jpg",
+              "alt": "monkey 8x10.jpg"
+            },
+            {
+              "src": "owl8x10.jpg",
+              "alt": "owl8x10.jpg"
+            },
+            {
+              "src": "pig-8x10.jpg",
+              "alt": "pig 8x10.jpg"
+            },
+            {
+              "src": "rabbit-kodak-8x10.jpg",
+              "alt": "rabbit kodak 8x10.jpg"
+            },
+            {
+              "src": "raccoon-8x10.jpg",
+              "alt": "raccoon 8x10.jpg"
+            },
+            {
+              "src": "rat-8x10.jpg",
+              "alt": "rat 8x10.jpg"
+            },
+            {
+              "src": "sheep8x10.jpg",
+              "alt": "sheep8x10.jpg"
+            },
+            {
+              "src": "skunk-8x10.jpg",
+              "alt": "skunk 8x10.jpg"
+            },
+            {
+              "src": "squirrel-kodak-8x10.jpg",
+              "alt": "squirrel kodak 8x10.jpg"
+            },
+            {
+              "src": "sugar-glider-8x10.jpg",
+              "alt": "sugar glider 8x10.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    "two-hundred-years-together": {
+      "title": "Two Hundred Years Together",
+      "description": "Untitled children’s book (in progress).",
+      "banner": {
+        "src": "hyenas.jpg",
+        "alt": "Two Hundred Years Together"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<p>“Two Hundred Years Together,” written by Matthew Hasson and illustrated by Shannon Collins. <br><br>This project was a collaboration with a friend who wanted to propose to his girlfriend by presenting a poem he had written in children’s book form. I ended up taking longer than expected to finish the illustrations while juggling parenthood and a heavy workload, so the book ended up being a wedding gift for his fiancée. </p>"
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "tortoise-shell-greens.jpg",
+              "alt": "tortoise shell-greens.jpg"
+            },
+            {
+              "src": "tortoises.jpg",
+              "alt": " I wish we were giant tortoises,  So the days would go by slow. For two hundred years we’d be together, I know it to be so. "
+            },
+            {
+              "src": "birds.jpg",
+              "alt": " And if we were two birds, Like a cardinal, hawk, or jay, If you ever got lonely, I’d fly to you right away. "
+            },
+            {
+              "src": "whales.jpg",
+              "alt": " If we were humpback whales, swimming leagues across the sea, To always have you by my side, What an adventure that would be! "
+            },
+            {
+              "src": "monkeys.jpg",
+              "alt": " If we were arctic monkeys, In a frigid, icy, storm, We’d nestle our bodies close, To keep each other warm. "
+            },
+            {
+              "src": "bees.jpg",
+              "alt": " If we were honey bees, Buzzing about the morning dew, No queen could ever take your place, No nectar sweeter than you. "
+            },
+            {
+              "src": "hyenas-6388cf.jpg",
+              "alt": " If we were hyenas, Rolling ‘round the dirt, We’d always make each other laugh, Sometimes so much it hurts. "
+            },
+            {
+              "src": "skunks-1.jpg",
+              "alt": " If we were skunks, You wouldn’t need a shower, Cause even if you stunk too much, To me you’d smell like flowers. "
+            },
+            {
+              "src": "trees.jpg",
+              "alt": " If we were a couple trees, Standing tall and apart, Below the surface we’d share a root, Which keeps us close at heart. "
+            },
+            {
+              "src": "clouds-1.jpg",
+              "alt": " If we were two clouds, Making shapes in swirls of white, From way up in the sky, You’d still be the best view in sight. "
+            },
+            {
+              "src": "rocksjpg.jpg",
+              "alt": " If we were two rocks, Just laying on the ground, I’d never be bored, As long as you’re around. "
+            },
+            {
+              "src": "watercolor-vivid-1.jpg",
+              "alt": " If we were anything other than us,  We’d still be best friends… "
+            },
+            {
+              "src": "dogs-1.jpg",
+              "alt": " Two hundred years we’d be together, I know it to be true, Because no matter where we go in life, You got me and I got you. "
+            },
+            {
+              "src": "tortoise-shell-purples.jpg",
+              "alt": "tortoise-shell-purples.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    "personal": {
+      "title": "Personal",
+      "description": "",
+      "banner": {
+        "src": "self-care-web.jpg",
+        "alt": "Personal"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<p>Illustrations from my personal life, in a variety of mediums, from watercolors and pen to Posca markers and pencil.</p>"
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "self-care-web-418425.jpg",
+              "alt": "self-care-web.jpg"
+            },
+            {
+              "src": "adelaide-watercolor-web.jpg",
+              "alt": "adelaide-watercolor-web.jpg"
+            },
+            {
+              "src": "addy-copy.jpg",
+              "alt": "addy copy.jpg"
+            },
+            {
+              "src": "draggie-copy-2.jpg",
+              "alt": "draggie copy 2.jpg"
+            },
+            {
+              "src": "crossing-guard-sc-copy.jpg",
+              "alt": "crossing guard sc copy.jpg"
+            },
+            {
+              "src": "ibrahem-copy-2.jpg",
+              "alt": "ibrahem copy 2.png"
+            },
+            {
+              "src": "leaf-with-rings-expanded-copy.jpg",
+              "alt": "Leaf with rings expanded copy.png"
+            }
+          ]
+        }
+      ]
+    },
+    "about": {
+      "title": "About",
+      "description": "",
+      "banner": {
+        "src": "branding-photos3-3.jpg",
+        "alt": "About"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<p>Shannon Collins is an illustrator and <a href=\"http://www.shannoncollins.com\" target=\"_blank\" rel=\"noopener noreferrer\">photographer</a> based in the Philadelphia area. They hold a BFA from Kutztown University in Communication Design with a major in Illustration. They use mostly traditional materials in their work — watercolors, colored pencils, markers, and ink — with a particular interest in color and texture.&nbsp;</p><p>Their freelance work has been seen in Urban Outfitters stores worldwide, on exhibit at the Philadelphia International Airport, and in galleries throughout the Philadelphia area. </p><p><a href=\"http://www.themorewesee.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Photo by </a><a href=\"https://theonash.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Theo Nash</a></p>"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "",
+      "banner": {
+        "src": "watercolor-macro-1.jpg",
+        "alt": "Contact"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<h3>Say Hello.</h3><p>Please don't hesitate to reach out, whether you're interested in hiring me for freelance work or just want to say hello.</p>"
+        },
+        {
+          "type": "form"
+        }
+      ]
+    }
+  },
+  "projectOrder": [
+    "the-things-we-do",
+    "say-hello-to-my-little-friends",
+    "two-hundred-years-together",
+    "personal"
+  ],
+  "logo": "sc-logo-on-prism.jpg",
+  "social": [
+    {
+      "service": "instagram",
+      "url": "http://instagram.com/shannoncollinsphoto"
+    },
+    {
+      "service": "email",
+      "url": "mailto:shannon@shannoncollins.com"
+    }
+  ]
+}

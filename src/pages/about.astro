@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPage } from '../lib/content';
+
+const page = getPage('about');
+const bio = page.blocks.find((b) => b.type === 'text');
+const summary = bio?.html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+---
+
+<Base title="About" description={summary} banner={{ ...page.banner!, alt: 'Shannon Collins' }}>
+  <h1 class="page-title sr-only">About</h1>
+  {bio && <div class="prose" set:html={bio.html} />}
+</Base>

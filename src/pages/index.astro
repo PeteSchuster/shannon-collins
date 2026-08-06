@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPage, site } from '../lib/content';
+
+// The old homepage was the "Welcome" page: nothing but the banner illustration.
+const page = getPage('home');
+---
+
+<Base banner={page.banner} description={site.tagline} />

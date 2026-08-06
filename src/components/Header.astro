@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import { site, image } from '../lib/content';
+
+const links = [
+  { label: 'Illustration', href: '/illustration' },
+  // Shannon's photography lives on a separate site; the old nav pointed off-site too.
+  { label: 'Photography', href: 'https://www.shannoncollins.com', external: true },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const path = '/' + Astro.url.pathname.replace(/^\/|\/$/g, '');
+const isCurrent = (href: string) => path === href || path.startsWith(href + '/');
+---
+
+<header class="masthead">
+  <a class="masthead__logo" href="/" aria-label={`${site.title} — home`}>
+    <Image src={image(site.logo)} alt={site.title} width={290} densities={[1, 2]} loading="eager" />
+  </a>
+
+  <nav class="nav" aria-label="Main">
+    <ul class="nav__list">
+      {
+        links.map(({ label, href, external }) => (
+          <li>
+            <a
+              class="nav__link"
+              href={href}
+              aria-current={!external && isCurrent(href) ? 'page' : undefined}
+              {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

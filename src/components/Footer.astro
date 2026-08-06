@@ -1,0 +1,29 @@
+---
+import { site } from '../lib/content';
+
+const labels: Record<string, string> = {
+  instagram: 'Instagram',
+  email: 'Email',
+};
+---
+
+<footer class="footer">
+  {
+    site.social.map(({ service, url }) => (
+      <a class="footer__link" href={url} aria-label={labels[service] ?? service}>
+        {service === 'instagram' ? (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+            <circle cx="12" cy="12" r="4.2" />
+            <circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+            <path d="M3.5 6.5 12 13l8.5-6.5" />
+          </svg>
+        )}
+      </a>
+    ))
+  }
+</footer>

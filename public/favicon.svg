@@ -1,0 +1,8 @@
+<!-- The triangle mark from Shannon's logo, traced from the original artwork. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="175 -10 690 580">
+  <g fill="none" stroke="#f6d283" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M193 5 852 190 415 550Z" />
+    <path d="M403 68 415 550" />
+    <path d="M406 185 683 331" />
+  </g>
+</svg>

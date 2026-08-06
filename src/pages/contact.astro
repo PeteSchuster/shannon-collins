@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPage, site } from '../lib/content';
+
+const page = getPage('contact');
+const intro = page.blocks.find((b) => b.type === 'text');
+
+/**
+ * GitHub Pages can't run the Squarespace form handler, so posts go to a hosted
+ * form service instead. Set PUBLIC_CONTACT_FORM_ENDPOINT (e.g. a Formspree
+ * https://formspree.io/f/xxxxxxxx URL) in .env and in the Pages workflow.
+ * Without it the page falls back to a plain mailto link, which always works.
+ */
+const endpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT;
+const email = site.social.find((s) => s.service === 'email')?.url ?? 'mailto:hello@example.com';
+
+// Same fields, in the same order, as the Squarespace form.
+const fields: {
+  name: string;
+  label: string;
+  type: 'text' | 'email';
+  required?: boolean;
+  autocomplete?: string;
+}[] = [
+  { name: 'name', label: 'Name', type: 'text', autocomplete: 'name' },
+  { name: 'email', label: 'Email Address', type: 'email', required: true, autocomplete: 'email' },
+  { name: 'pronouns', label: 'Pronouns', type: 'text' },
+  { name: 'subject', label: 'Subject', type: 'text', required: true },
+  { name: 'referral', label: 'How did you find me?', type: 'text' },
+];
+---
+
+<Base title="Contact" description="Get in touch with Shannon Collins." banner={page.banner}>
+  {intro && <div class="prose" set:html={intro.html} />}
+
+  {
+    endpoint ? (
+      <form class="form" method="post" action={endpoint}>
+        {fields.map((field) => (
+          <p class="form__field">
+            <label class="form__label" for={field.name}>
+              {field.label}
+              {!field.required && <span> (optional)</span>}
+            </label>
+            <input
+              class="form__input"
+              id={field.name}
+              name={field.name}
+              type={field.type}
+              required={field.required}
+              autocomplete={field.autocomplete}
+            />
+          </p>
+        ))}
+
+        <p class="form__field">
+          <label class="form__label" for="plug">
+            Your pop culture plug<span>
+              {' '}
+              — a book, tv show, movie, or podcast you're currently consuming (optional)
+            </span>
+          </label>
+          <textarea class="form__textarea" id="plug" name="plug" rows="3" />
+        </p>
+
+        <p class="form__field">
+          <label class="form__label" for="message">
+            Message
+          </label>
+          <textarea class="form__textarea" id="message" name="message" rows="7" required />
+        </p>
+
+        {/* Bots fill every field they find; humans never see this one. */}
+        <p class="form__honeypot" aria-hidden="true">
+          <label for="website">Leave this field empty</label>
+          <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+        </p>
+
+        <button class="form__submit" type="submit">
+          Send
+        </button>
+      </form>
+    ) : (
+      <p class="prose">
+        The quickest way to reach me is by email: <a href={email}>{email.replace('mailto:', '')}</a>.
+      </p>
+    )
+  }
+</Base>
+
+<style>
+  .form__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+</style>

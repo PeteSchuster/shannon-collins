@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site, image, type ImageRef } from '../lib/content';
+import '../styles/global.css';
+
+interface Props {
+  /** Page name; appended to the site title the way Squarespace did it. */
+  title?: string;
+  description?: string;
+  /** Full-width image below the nav. */
+  banner?: ImageRef | null;
+  /** Caption overlaid on the banner. */
+  bannerCaption?: string;
+}
+
+const { title, description = site.tagline, banner, bannerCaption } = Astro.props;
+
+const pageTitle = title ? `${title} — ${site.title}` : site.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = banner ? new URL(image(banner.src).src, Astro.site) : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+
+  <body>
+    <div class="canvas">
+      <Header />
+
+      <main>
+        {
+          banner && (
+            <div class="banner">
+              <Image
+                src={image(banner.src)}
+                alt={banner.alt}
+                widths={[640, 1046, 2092]}
+                sizes="(max-width: 1140px) 100vw, 1046px"
+                loading="eager"
+              />
+              {bannerCaption && <p class="banner__caption">{bannerCaption}</p>}
+            </div>
+          )
+        }
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import Slideshow from '../../components/Slideshow.astro';
+import { projects } from '../../lib/content';
+
+export const getStaticPaths = (() =>
+  projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }))) satisfies GetStaticPaths;
+
+const { project } = Astro.props;
+
+const summary =
+  project.description ||
+  project.blocks.find((b) => b.type === 'text')?.html.replace(/<[^>]*>/g, '').trim() ||
+  undefined;
+---
+
+<Base
+  title={project.title}
+  description={summary}
+  banner={project.banner}
+  bannerCaption={project.description}
+>
+  <h1 class="page-title sr-only">{project.title}</h1>
+
+  {
+    project.blocks.map((block) =>
+      block.type === 'text' ? (
+        <div class="prose" set:html={block.html} />
+      ) : block.type === 'gallery' ? (
+        <Slideshow images={block.images} label={project.title} />
+      ) : null,
+    )
+  }
+</Base>
